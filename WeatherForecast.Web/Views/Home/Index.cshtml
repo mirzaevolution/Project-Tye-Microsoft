@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WeatherForecastModel>
+@{
+    ViewData["Title"] = "Weather Forecast";
+}
+<div>
+    <h3 class="text-primary">Weather Forecast</h3>
+</div>
+<div>
+    <table class="table table-bordered">
+        <thead class="bg-primary">
+            <tr>
+                <th class="text-light">Date</th>
+                <th class="text-light">Temperature C</th>
+                <th class="text-light">Temperature F</th>
+                <th class="text-light">Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="4"><strong>No weather forecast found</strong></td>
+                </tr>
+            }
+            else
+            {
+                foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Date.ToShortDateString()</td>
+                        <td>@item.TemperatureC</td>
+                        <td>@item.TemperatureF</td>
+                        <td>@item.Summary</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    
+    
+</div>
